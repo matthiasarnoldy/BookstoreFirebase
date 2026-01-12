@@ -1,8 +1,16 @@
 const BASE_URL = "https://remotestorage-94f04-default-rtdb.europe-west1.firebasedatabase.app/";
+let responseDbAsJson;
 let saveLocal = [{},{},{},];
 
 function init() {
+    loadDataBase("/bookstoreDB")
     loadData("/bookStorage");
+}
+
+async function loadDataBase(path="") {
+    const response = await fetch(BASE_URL + path + ".json")
+    responseDbAsJson = await response.json();
+    console.log(responseDbAsJson);
 }
 
 function renderBooks() {
@@ -93,7 +101,6 @@ async function putData(path="", data="") {
 async function loadData(path="") {
     const response = await fetch(BASE_URL + path + ".json")
     let responseAsJson = await response.json();
-    console.log(responseAsJson);
     if (responseAsJson[0] !== null && responseAsJson[1] !== null && responseAsJson[2] !== null) {
         saveLocal[0] = responseAsJson[0];
         saveLocal[1] = responseAsJson[1];
