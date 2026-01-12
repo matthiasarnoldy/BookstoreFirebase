@@ -1,0 +1,518 @@
+/* Schriftart */
+@font-face {
+    font-family: 'raleway';
+    src: url(./assets/fonts/Raleway-VariableFont_wght.ttf);
+}
+
+/* Allgemein */
+html {
+    background-color: #09222A;
+    scrollbar-color: #DC8758 transparent;
+}
+
+body {
+    font-family: 'raleway';
+    font-size: 18px;
+    font-weight: 400;
+    min-height: 100vh;
+    color: white;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+h1 {
+    font-size: 54px;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 40px;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+hr {
+    width: calc(100% + 32px);
+    height: 3px;
+    background-color: #29424a;
+    border: none;
+}
+
+table {
+    font-size: 22px;
+}
+
+th {
+    width: 188px;
+    font-weight: 600;
+    display: flex;
+    text-align: left;
+}
+
+td {
+    padding: 4px 0;
+}
+
+a {
+    color: #DC8758;
+    opacity: 0.7;
+    transition: all 125ms ease-in-out;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.content_max-width {
+    padding: 0 144px;
+    width: 1440px;
+    max-width: 1440px;
+    display: flex;
+}
+
+/* Header */
+.header {
+    padding: 32px 0;
+    background-color: #09222A;
+    display: flex;
+    justify-content: center;
+}
+
+.headerLogo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.headerLogo:hover {
+    text-decoration: none;
+}
+
+.logoHeader {
+    height: 56px;
+}
+
+.logoHeadline {
+    color: #eee;
+}
+
+.logoHeadlineDifColor {
+    color: #DC8758;
+}
+
+.logoHeadlineLine {
+    font-size: 54px;
+    font-weight: 700;
+    color: #DC8758;
+}
+
+.logoHeadlineSub {
+    color: #eee;
+}
+
+/* Main */
+.main {
+    padding: 32px 0;
+    background-color: #06181e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.mainContent_max-width {
+    align-items: center;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.book {
+    width: 700px;
+    padding: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #09222A;
+    border: 3px solid #29424a;
+    border-radius: 24px;
+}
+
+.bookHeadline {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.bookTitle {
+    padding: 0 0 16px;
+    text-align: center;
+}
+
+.bookMain {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.bookImg {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.bookCover {
+    width: calc(100% + 32px);
+    height: 256px;
+    object-fit: cover;
+    object-position: 50% 20%;
+}
+
+.bookPresentation {
+    width: 100%;
+    padding: 16px 0;
+}
+
+.bookPriceLike {
+    padding-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bookPrice {
+    color: #DC8758;
+}
+
+.bookLike {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.likeIcon {
+    width: 48px;
+    height: 48px;
+    fill: #DC8758;
+    cursor: pointer;
+    transition: all 125mss ease-in-out;
+}
+
+.likeIcon:hover {
+    scale: 1.1;
+    cursor: pointer;
+}
+
+.likedIcon {
+    width: 48px;
+    height: 48px;
+    fill: #DC8758;
+    cursor: pointer;
+    transition: all 125mss ease-in-out;
+}
+
+.likedIcon:hover {
+    scale: 1.1;
+    cursor: pointer;
+}
+
+.bookLike .likedIcon {
+    display: none;
+}
+
+.bookLike.bookLiked .likedIcon {
+    display: block;
+}
+
+.bookLike.bookLiked .likeIcon {
+    display: none;
+}
+
+.bookComments {
+    width: 100%;
+    padding: 16px 0 0;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.commentsHeadline {
+    padding-bottom: 8px;
+}
+
+.commentsTable {
+    height: 224px;
+    display: block;
+    overflow-y: scroll;
+    scrollbar-color: #DC8758 transparent;
+    scrollbar-gutter: stable;
+}
+
+.writeComment {
+    width: 100%;
+    padding: 8px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+
+.commentWrite {
+    width: 100%;
+    padding: 4px;
+    font-size: 20px;
+    color: #DC8758;
+    background-color: #29424a;
+    border: none;
+    border-bottom: 3px solid #DC8758;
+    border-radius: 4px;
+}
+
+.commentWrite::placeholder {
+    color: #DC8758;
+    opacity: 0.7;
+}
+
+.commentWrite:focus {
+    outline: none;
+}
+
+.commentSend {
+    margin-top: 2px;
+    background-color: transparent;
+    border: none;
+}
+
+.commentSend:hover {
+    cursor: pointer;
+}
+
+.sendIcon {
+    height: 32px;
+    fill: #DC8758;
+}
+
+/* Footer */
+.footer {
+    padding: 24px 0;
+    background-color: #09222A;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.footerContent_max-width {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footerLogoIcon {
+    height: 40px;
+}
+
+.footerIcon {
+    height: 20px;
+    fill: #DC8758;
+    opacity: 0.7;
+    vertical-align: bottom;
+}
+
+/* Impressum */
+.mainImpressum {
+    align-items: normal;
+}
+
+.impressumContent_max-width {
+    flex-direction: column;
+    align-items: self-start;
+    justify-content: start;
+}
+
+.mainImpressum_section {
+    padding-top: 32px;
+}
+
+.mainImpressum-header {
+    padding: 24px 0 8px;
+}
+
+.mainImpressum-text {
+    padding: 8px 0;
+}
+
+.mainImpressum_datenschutz {
+    padding: 8px 0 32px;
+}
+
+.mainImpressum-link:hover {
+    text-decoration: underline;
+    text-decoration-thickness: none;
+    text-underline-position: none;
+    text-underline-offset: none;
+}
+
+@media (max-width: 1100px) {
+   /* Allgemein */
+    h1 {
+        font-size: 48px;
+    }
+
+    h2 {
+        font-size: 32px;
+    }
+
+    h3 {
+        font-size: 22px;
+    }
+
+    table {
+        font-size: 20px;
+    }
+
+    th {
+        width: 172px;
+    }
+
+    .content_max-width {
+        padding: 0 56px;
+    }
+
+    /* Header */
+    .logoHeader {
+        height: 48px;
+    }
+
+    .logoHeadlineLine {
+        font-size: 48px;
+    }
+
+    /* Main */
+    .book {
+        width: 560px;
+    }
+
+    .bookCover {
+        height: 224px;
+    }
+
+    .commentsTable {
+        height: 200px;
+    }
+}
+
+@media (max-width: 804px) {
+    .logoHeadlineLine, .logoHeadlineSub {
+        display: none;
+    }
+}
+
+@media (max-width: 680px) {
+    /* Main */
+    .book {
+        width: 400px;
+    }
+
+    .bookCover {
+        height: 200px;
+    }
+
+    .commentsTable {
+        height: 184px;
+    }
+}
+
+@media (max-width: 510px) {
+    /* Allgemein */
+    body {
+        font-size: 16px;
+    }
+
+    h1 {
+        font-size: 40px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    h3 {
+        font-size: 18px;
+    }
+
+    table {
+        font-size: 16px;
+    }
+
+    th {
+        width: 152px;
+    }
+
+    .content_max-width {
+        padding: 0 16px;
+    }
+
+    /* Header */
+    .logoHeader {
+        height: 40px;
+    }
+
+    /* Main */
+    .book {
+        width: 360px;
+    }
+
+    .bookCover {
+        height: 188px;
+    }
+
+    .commentsTable {
+        height: 160px;
+    }
+
+    .commentWrite {
+        font-size: 16px;
+    }
+
+    /* Footer */
+    .footerLogoIcon {
+        height: 32px;
+    }
+
+    .footerIcon {
+        height: 18px;
+    }
+}
+
+@media (max-width: 390px) {
+    /* Allgemein */
+    th {
+        width: 136px;
+    }
+
+    /* Main */
+    .book {
+        width: 300px;
+    }
+
+    .bookCover {
+        height: 144px;
+    }
+
+    .commentsTable {
+        height: 144px;
+    }
+}
