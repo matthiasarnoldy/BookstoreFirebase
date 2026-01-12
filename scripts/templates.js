@@ -2,19 +2,19 @@ function getBookTemplate(indexBook) {
     return `
     <article class="book">
         <header class="bookHeadline">
-            <h2 class="bookTitle">${books[indexBook].name}</h2>
+            <h2 class="bookTitle">${responseDbAsJson[indexBook].name}</h2>
         </header>
         <main class="bookMain">
             <hr>
             <section class="bookImg">
-                <img src="${books[indexBook].source}" alt="Harry Potter und der Stein der Weisen" class="bookCover">
+                <img src="${responseDbAsJson[indexBook].source}" alt="Harry Potter und der Stein der Weisen" class="bookCover">
                 <hr>
             </section>
             <section class="bookPresentation">
                 <div class="bookPriceLike">
-                    <h2 class="bookPrice">${parseFloat(books[indexBook].price).toFixed(2).replace('\.', ',')}€</h2>
+                    <h2 class="bookPrice">${parseFloat(responseDbAsJson[indexBook].price).toFixed(2).replace('\.', ',')}€</h2>
                     <div id="bookLike${indexBook}" class="bookLike"> 
-                        <span class="bookLikeNumber">${books[indexBook].likes}</span>
+                        <span class="bookLikeNumber">${responseDbAsJson[indexBook].likes}</span>
                         <svg onclick="likeDislike(${indexBook})" class="likeIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
                             <path d="M442.9 144C415.6 144 389.9 157.1 373.9 179.2L339.5 226.8C335 233 
                             327.8 236.7 320.1 236.7C312.4 236.7 305.2 233 300.7 226.8L266.3 179.2C250.3 
@@ -41,15 +41,15 @@ function getBookTemplate(indexBook) {
                     <table>
                         <tr>
                             <th>Author</th>
-                            <td>: ${books[indexBook].author}</td>
+                            <td>: ${responseDbAsJson[indexBook].author}</td>
                         </tr>
                         <tr>
                             <th>Erscheinungsjahr</th>
-                            <td>: ${books[indexBook].publishedYear}</td>
+                            <td>: ${responseDbAsJson[indexBook].publishedYear}</td>
                         </tr>
                         <tr>
                             <th>Genre</th>
-                            <td>: ${books[indexBook].genre}</td>
+                            <td>: ${responseDbAsJson[indexBook].genre}</td>
                         </tr>
                     </table>
                 </div>
@@ -79,8 +79,8 @@ function getBookTemplate(indexBook) {
 function getTableTemplate(indexBook, indexComments) {
     return `
     <tr>
-        <th>${books[indexBook].comments[indexComments].name}</th>
-        <td>: ${books[indexBook].comments[indexComments].comment}</td>
+        <th>${responseDbAsJson[indexBook].comments[indexComments].name}</th>
+        <td>: ${responseDbAsJson[indexBook].comments[indexComments].comment}</td>
     </tr>
     `;
 }
