@@ -1,10 +1,22 @@
 const BASE_URL = "https://remotestorage-94f04-default-rtdb.europe-west1.firebasedatabase.app/";
 let responseDbAsJson;
-let saveLocal = [{},{},{},];
+let saveToFirebase = [{},{},{},];
 
 function init() {
-    loadDataBase("/bookstoreDB")
     loadData("/bookStorage");
+    // loadDataBase("/bookstoreDB")
+    putDataBase("/bookstoreDB", books)
+}
+
+async function putDataBase(path="", data="") {
+    const response = await fetch(BASE_URL + path + ".json",{
+        method: "PUT",
+        header: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data)
+    });
+    return response.json()
 }
 
 async function loadDataBase(path="") {
@@ -22,8 +34,8 @@ function renderBooks() {
         likeValidation(indexBook);
         renderComments(indexBook);
     }
-    bookToSaveLocal();
-    putData("/bookStorage", saveLocal);
+    bookToSaveToFirebase();
+    putData("/bookStorage", saveToFirebase);
 }
 
 function renderComments(indexBook) {
@@ -73,17 +85,17 @@ function likeDislike(indexBook) {
 
 function saveDataToBooks() {
     books.forEach((book, index) => {
-        book.comments = saveLocal[0][index];
-        book.likes = saveLocal[1][index];
-        book.liked = saveLocal[2][index];
+        book.comments = saveToFirebase[0][index];
+        book.likes = saveToFirebase[1][index];
+        book.liked = saveToFirebase[2][index];
     });
 }
 
-function bookToSaveLocal() {
+function bookToSaveToFirebase() {
     books.forEach((book, index) => {
-        saveLocal[0][index] = book.comments;
-        saveLocal[1][index] = book.likes;
-        saveLocal[2][index] = book.liked;
+        saveToFirebase[0][index] = book.comments;
+        saveToFirebase[1][index] = book.likes;
+        saveToFirebase[2][index] = book.liked;
     });
 }
 
@@ -102,33 +114,13 @@ async function loadData(path="") {
     const response = await fetch(BASE_URL + path + ".json")
     let responseAsJson = await response.json();
     if (responseAsJson[0] !== null && responseAsJson[1] !== null && responseAsJson[2] !== null) {
-        saveLocal[0] = responseAsJson[0];
-        saveLocal[1] = responseAsJson[1];
-        saveLocal[2] = responseAsJson[2];
+        saveToFirebase[0] = responseAsJson[0];
+        saveToFirebase[1] = responseAsJson[1];
+        saveToFirebase[2] = responseAsJson[2];
         saveDataToBooks();
         renderBooks();
     } else {
-        bookToSaveLocal();
+        bookToSaveToFirebase();
         renderBooks();
-    }
-}
-
-function saveToLocalStorage() {
-    localStorage.setItem('comments', JSON.stringify(saveLocal[0]));
-    localStorage.setItem('likeNumber', JSON.stringify(saveLocal[1]));
-    localStorage.setItem('likeCondition', JSON.stringify(saveLocal[2]));
-}
-
-function getFromLocalStorage() {
-    let commentsLocal = JSON.parse(localStorage.getItem('comments'));
-    let likeNumberLocal = JSON.parse(localStorage.getItem('likeNumber'));
-    let likeConditionLocal = JSON.parse(localStorage.getItem('likeCondition'));
-    if (commentsLocal !== null) {
-        saveLocal[0] = commentsLocal;
-        saveLocal[1] = likeNumberLocal;
-        saveLocal[2] = likeConditionLocal;
-        saveDataToBooks();
-    } else {
-        bookToSaveLocal();
     }
 }

@@ -72,7 +72,12 @@ let books = [
         "publishedYear": 1999,
         "genre": "Fantasy",
         "source": "./assets/img/harryPotterUndDerGefangeneAskaban.webp",
-        "comments": []
+        "comments": [
+        {
+            "name": "ReadingAddict",
+            "comment": "Ein unvergessliches Buch, das mich auf eine magische Reise mitgenommen hat."
+        }
+        ]
     },
     {
         "name": "Harry Potter und der Feuerkelch",
@@ -103,7 +108,12 @@ let books = [
         "publishedYear": 2003,
         "genre": "Fantasy",
         "source": "./assets/img/harryPotterUndDerOrdenDesPhoenix.webp",
-        "comments": []
+        "comments": [
+        {
+            "name": "BuchKenner",
+            "comment": "Ein spannendes Abenteuer, das mich von Anfang an mitgerissen hat."
+        },
+        ]
     },
     {
         "name": "Harry Potter und der Halbblutprinz",
